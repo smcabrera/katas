@@ -34,9 +34,3 @@ class Complement
     return complement_strain
   end
 end
-
-#* `G` -> `C`
-#* `C` -> `G`
-#* `T` -> `A`
-#* `A` -> `U`
-
