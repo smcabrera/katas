@@ -1,3 +1,5 @@
+require 'pry'
+
 class Fixnum
   def to_roman
     result_string = ''
@@ -15,20 +17,14 @@ class Fixnum
   #protected
 
   def to_vector
-    result = []
-    num_str = self.to_s
-    case num_str.size
-    when 3
-      num_str = "0#{num_str}"
-    when 2
-      num_str = "00#{num_str}"
-    when 1
-      num_str = "000#{num_str}"
+    result = Array.new(4, 0)
+    num_str = self.to_s.reverse
+    [3, 2, 1, 0].each do |i|
+      if num_str[i]
+        result[i] = num_str[i].to_i
+      end
     end
-    num_str.each_char do |i|
-      result << i.to_i
-    end
-    result
+    result.reverse
   end
 
   def letterize(n, current_digit, half_digit, next_digit)
