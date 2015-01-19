@@ -14,7 +14,7 @@ class Fixnum
     result_string
   end
 
-  #protected
+  protected
 
   def to_vector
     result = Array.new(4, 0)
