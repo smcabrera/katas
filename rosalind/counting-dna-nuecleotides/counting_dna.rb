@@ -5,20 +5,11 @@ class DNA
   end
 
   def count
-    result = Array.new(4, 0)
+    result = {'A' => 0, 'C' => 0, 'G' => 0, 'T' => 0}
     string = self.nucleotide_string
     string.each_char do |char|
-      case char
-      when 'A'
-        result[0] += 1
-      when 'C'
-        result[1] += 1
-      when 'G'
-        result[2] += 1
-      when 'T'
-        result[3] += 1
-      end
+      result[char] += 1
     end
-    result
+    result.values.to_a
   end
 end
