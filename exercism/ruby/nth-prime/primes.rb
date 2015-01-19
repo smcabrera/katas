@@ -1,3 +1,5 @@
+require 'prime'
+
 class Primes
   def self.nth(n)
     results_array = []
