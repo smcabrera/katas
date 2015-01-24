@@ -6,10 +6,6 @@ class Grains
   end
 
   def total
-    result = 0
-    (1..64).each do |i|
-      result += 2 ** (i - 1)
-    end
-    result
+    square(64) * 2 - 1
   end
 end
