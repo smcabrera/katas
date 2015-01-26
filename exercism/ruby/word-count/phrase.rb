@@ -1,7 +1,7 @@
 class Phrase
   attr_accessor :phrase
 
-  PUNCTUATION = '!@#$%^&*()'
+  PUNCTUATION = ':!@#$%^&*()'
 
   def initialize(phrase)
     @phrase = phrase
@@ -15,8 +15,8 @@ class Phrase
     return word_hash
   end
 
-  def self.word_list(phrase)
-    phrase.split.each do |word|
+  def self.word_list
+    self.phrase.split.each do |word|
       self.remove_punctuation(word)
     end
   end
