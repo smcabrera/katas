@@ -29,7 +29,6 @@ class Bob
   end
 
   def downcase_acronyms(remark)
-    # This seems really horrible performance-wise; you'd have to check against some enormous list of acronyms for each phrase. But I don't really see an alternative
     result = remark
     ACRONYMS.each do |acronym|
       result.gsub!(acronym, acronym.downcase)
