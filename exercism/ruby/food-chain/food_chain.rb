@@ -36,14 +36,6 @@ class FoodChainSong
     "I know an old lady who swallowed a #{animal}.\n"
   end
 
-  def conclude_song(n)
-    if n == 8
-      "She's dead, of course!"
-    else
-      "I don't know why she swallowed the fly. Perhaps she'll die.\n"
-    end
-  end
-
   def why_swallow_this_animal(animal_1, animal_2)
     spider = animal_2 == "spider" ? " that wriggled and jiggled and tickled inside her" : ""
     fly = animal_1 == "fly" ? "I don't know why she swallowed the fly. Perhaps she'll die.\n" : nil
