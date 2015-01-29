@@ -16,10 +16,9 @@ class FoodChainSong
 
   def verse(n)
     n -= 1
-    animals = ["fly", "spider", "bird", "cat", "dog", "goat", "cow", "horse"]
     verse_string = ""
-    verse_string += what_did_she_swallow(animals[n])
-    if n > 0  then verse_string += introduce_animal(animals[n]) end
+    verse_string += what_did_she_swallow(ANIMALS[n])
+    if n > 0  then verse_string += introduce_animal(ANIMALS[n]) end
     if n == 7 then return verse_string end
     if n > 0 then verse_string += why_swallow_animals(n) end
     verse_string += conclude_song(n)
@@ -57,9 +56,8 @@ class FoodChainSong
 
   def why_swallow_animals(n)
     result = ""
-    animals = ["fly", "spider", "bird", "cat", "dog", "goat", "cow", "horse"]
     (1..n).to_a.reverse.each do |i|
-      result += why_swallow_this_animal(animals[i], animals[i-1])
+      result += why_swallow_this_animal(ANIMALS[i], ANIMALS[i-1])
     end
     result
   end
