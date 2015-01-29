@@ -1,10 +1,7 @@
 require 'pry'
 
 class FoodChainSong
-  def initialize
-  end
-
-  ANIMALS = ["fly", "spider", "bird", "cat", "dog", "goat", "cow", "horse"]
+  ANIMALS = ["?", "fly", "spider", "bird", "cat", "dog", "goat", "cow", "horse"]
 
   def sing
     self.verses(1, 8)
@@ -15,13 +12,11 @@ class FoodChainSong
   end
 
   def verse(n)
-    n -= 1
     verse_string = ""
     verse_string += what_did_she_swallow(ANIMALS[n])
-    if n > 0  then verse_string += introduce_animal(ANIMALS[n]) end
-    if n == 7 then return verse_string end
-    if n > 0 then verse_string += why_swallow_animals(n) end
-    verse_string += conclude_song(n)
+    if n > 1  then verse_string += introduce_animal(ANIMALS[n]) end
+    if n == 8 then return verse_string end
+    verse_string += why_swallow_animals(n)
     verse_string
   end
 
@@ -51,7 +46,12 @@ class FoodChainSong
 
   def why_swallow_this_animal(animal_1, animal_2)
     spider = animal_2 == "spider" ? " that wriggled and jiggled and tickled inside her" : ""
-    "She swallowed the #{animal_1} to catch the #{animal_2}#{spider}.\n"
+    fly = animal_1 == "fly" ? "I don't know why she swallowed the fly. Perhaps she'll die.\n" : nil
+    if fly
+      return fly
+    else
+      return "She swallowed the #{animal_1} to catch the #{animal_2}#{spider}.\n"
+    end
   end
 
   def why_swallow_animals(n)
