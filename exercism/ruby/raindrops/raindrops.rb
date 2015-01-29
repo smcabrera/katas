@@ -4,11 +4,6 @@ class Raindrops
     if number % 3 == 0 then result += 'Pling' end
     if number % 5 == 0 then result += 'Plang' end
     if number % 7 == 0 then result += 'Plong' end
-
-    if result == ''
-      return number.to_s
-    else
-      return result
-    end
+    result == '' ? number.to_s : result
   end
 end
