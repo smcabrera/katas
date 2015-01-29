@@ -13,27 +13,25 @@ class FoodChainSong
 
   def verse(n)
     verse_string = ""
-    verse_string += what_did_she_swallow(ANIMALS[n])
-    if n > 1  then verse_string += introduce_animal(ANIMALS[n]) end
+    verse_string += introduce_animal(ANIMALS[n])
     if n == 8 then return verse_string end
     verse_string += why_swallow_animals(n)
     verse_string
   end
 
   def introduce_animal(animal)
+    result = "I know an old lady who swallowed a #{animal}.\n"
     animal = animal.to_sym
-    animal_introductions = { :spider => "It wriggled and jiggled and tickled inside her.\n",
+    animal_introductions = { :fly    => "",
+                             :spider => "It wriggled and jiggled and tickled inside her.\n",
                              :bird   => "How absurd to swallow a bird!\n",
                              :cat    => "Imagine that, to swallow a cat!\n",
                              :dog    => "What a hog, to swallow a dog!\n",
                              :goat   => "Just opened her throat and swallowed a goat!\n",
                              :cow    => "I don't know how she swallowed a cow!\n",
                              :horse  => "She's dead, of course!\n" }
-    animal_introductions[animal]
-  end
-
-  def what_did_she_swallow(animal)
-    "I know an old lady who swallowed a #{animal}.\n"
+    result += animal_introductions[animal]
+    result
   end
 
   def why_swallow_this_animal(animal_1, animal_2)
