@@ -58,21 +58,10 @@ class FoodChainSong
   def why_swallow_animals(n)
     result = ""
     animals = ["fly", "spider", "bird", "cat", "dog", "goat", "cow", "horse"]
-    backwards_range(1..n).each do |i|
+    (1..n).to_a.reverse.each do |i|
       result += why_swallow_this_animal(animals[i], animals[i-1])
     end
     result
-  end
-
-  def backwards_range(range)
-    # todo: This is really silly. I know there has to be a better implementation for a range starting at the end and counting backwards
-    # But I don't know what is yet.
-    # So I'm writing this function as a kind of placeholder until I can find that better implementation, which I'm just trusting must exist
-    result_array = []
-    range.each do |i|
-      result_array.unshift(i)
-    end
-    result_array
   end
 
 end
