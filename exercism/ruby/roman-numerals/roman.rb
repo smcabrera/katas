@@ -20,9 +20,7 @@ class Fixnum
     result = Array.new(4, 0)
     num_str = to_s.reverse
     [3, 2, 1, 0].each do |i|
-      if num_str[i]
-        result[i] = num_str[i].to_i
-      end
+      if num_str[i] then result[i] = num_str[i].to_i end
     end
     result.reverse
   end
