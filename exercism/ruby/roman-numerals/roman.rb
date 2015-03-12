@@ -4,9 +4,9 @@ class Fixnum
   def to_roman
     result_string = ''
     num_vector = to_vector
-    current_digit = %w(M,  C, X, I)
-    half_digit    = %w(NA, D, L, V)
-    next_digit    = %w(NA, M, C, X)
+    current_digit = %w(M  C X I)
+    half_digit    = %w(NA D L V)
+    next_digit    = %w(NA M C X)
 
     4.times do |i|
       result_string += letterize(num_vector[i], current_digit[i], half_digit[i], next_digit[i] )
