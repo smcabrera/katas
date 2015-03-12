@@ -3,7 +3,7 @@ require 'pry'
 class Fixnum
   def to_roman
     result_string = ''
-    num_vector = self.to_vector
+    num_vector = to_vector
     current_digit = ['M',  'C', 'X', 'I']
     half_digit    = ['NA', 'D', 'L', 'V']
     next_digit    = ['NA', 'M', 'C', 'X']
@@ -18,7 +18,7 @@ class Fixnum
 
   def to_vector
     result = Array.new(4, 0)
-    num_str = self.to_s.reverse
+    num_str = to_s.reverse
     [3, 2, 1, 0].each do |i|
       if num_str[i]
         result[i] = num_str[i].to_i
