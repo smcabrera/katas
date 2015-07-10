@@ -7,11 +7,9 @@ class Binary
 
   def to_decimal
     result = 0
-    digit_place = value.length - 1
-    value.each_char do |digit|
-      result += digit.to_i * (2 ** digit_place)
-      digit_place -= 1
-    end
+    value.split("").each_with_index { |item, index|
+      result += item.to_i * (2 ** (value.length - index - 1))
+    }
     result
   end
 end
