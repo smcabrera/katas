@@ -17,12 +17,10 @@ defmodule ListOpsTest do
     assert L.count([]) == 0
   end
 
-  @tag :pending
   test "count of normal list" do
     assert L.count([1,3,5,7]) == 4
   end
 
-  @tag :pending
   test "count of huge list" do
     assert L.count(Enum.to_list(1..1_000_000)) == 1_000_000
   end
@@ -42,12 +40,10 @@ defmodule ListOpsTest do
     assert L.reverse(Enum.to_list(1..1_000_000)) == Enum.to_list(1_000_000..1)
   end
 
-  @tag :pending
   test "map of empty list" do
     assert L.map([], &(&1+1)) == []
   end
 
-  @tag :pending
   test "map of normal list" do
     assert L.map([1,3,5,7], &(&1+1)) == [2,4,6,8]
   end
