@@ -28,15 +28,17 @@ defmodule ListOps do
   end
 
   @spec reverse(list) :: list
-  def reverse(l=[]) do
-    []
+  def reverse(list) do
+    reverse(list, [])
   end
 
-  def reverse(l) do
+  def reverse([], accumulator) do
+    accumulator
   end
 
-  def reverse(l=[], accumulated_list) do
-
+  def reverse(list, accumulator) do
+    [first | rest ] = list
+    reverse(rest, [first | accumulator])
   end
 
   @spec map(list, (any -> any)) :: list
@@ -45,13 +47,35 @@ defmodule ListOps do
   end
 
   def map([head | tail], function) do
-    IEx.pry
     [function.(head) | map(tail, function)]
   end
 
   @spec filter(list, (any -> as_boolean(term))) :: list
-  def filter(l, f) do
+  def filter([], f) do
+    []
+  end
 
+  def filter(list, function) do
+    [first | rest] = list
+    if function.(first) == true do
+      filter(rest, function, [first])
+    else
+      filter(rest, function, [])
+    end
+  end
+
+  def filter(list, function, accumulator) do
+    [first | rest ] = list
+    if function.(first) == true do
+      IEx.pry
+      filter(rest, function, [first | accumulator])
+    else
+      filter(rest, function, accumulator)
+    end
+  end
+
+  def filter([], function, accumulator) do
+    accumulator
   end
 
   @type acc :: any

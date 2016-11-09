@@ -54,7 +54,7 @@ defmodule RunLengthEncoder do
   end
 
   defp find_letter(letter_number_pair) do
-    Regex.scan(~r/\w/, Enum.at(letter_number_pair, 0)) 
+    Regex.scan(~r/\w/, Enum.at(letter_number_pair, 0))
     |> List.flatten
     |> List.last
   end
